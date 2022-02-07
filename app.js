@@ -1,5 +1,6 @@
 const express = require('express');
 const mongoose = require('mongoose');
+const path = require('path');
 const Campground = require('./models/Campground');
 
 mongoose.connect('mongodb://localhost:27017/yelp-camp');
@@ -13,7 +14,6 @@ db.once('open', () => {
 
 const app = express();
 const port = 3000;
-const path = require('path');
 
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'views'));
