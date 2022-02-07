@@ -1,0 +1,25 @@
+{
+  "name": "yelp-camp",
+  "version": "1.0.0",
+  "description": "Website to explore campgrounds",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nierurein/yelp-camp.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/nierurein/yelp-camp/issues"
+  },
+  "homepage": "https://github.com/nierurein/yelp-camp#readme",
+  "dependencies": {
+    "ejs": "^3.1.6",
+    "express": "^4.17.2",
+    "mongoose": "^6.2.0"
+  }
+}
