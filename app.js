@@ -70,7 +70,8 @@ app.post('/campgrounds', validateCampground, wrapAsync(async (req, res) => {
 }));
 
 app.get('/campgrounds/:id', wrapAsync(async (req, res) => {
-    const campground = await Campground.findById(req.params.id);
+    const campground = await Campground.findById(req.params.id).populate('reviews');
+    console.log(campground);
     res.render('campgrounds/show', { campground });
 }));
 
@@ -97,7 +98,14 @@ app.post('/campgrounds/:id/reviews', validateReview, wrapAsync(async (req, res) 
     campground.reviews.push(review);
     await review.save();
     await campground.save();
-    res.redirect(`/campgrounds/${campground._id}`)
+    res.redirect(`/campgrounds/${campground._id}`);
+}));
+
+app.delete('/campgrounds/:id/reviews/:reviewId', wrapAsync(async (req, res) => {
+    const { id, reviewId } = req.params;
+    await Campground.findByIdAndUpdate(id, { $pull: { reviews: reviewId } });
+    await Review.findByIdAndDelete(reviewId);
+    res.redirect(`/campgrounds/${id}`);
 }));
 
 // for each request
