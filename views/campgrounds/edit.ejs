@@ -14,7 +14,6 @@
                     <input class="form-control" type="text" name="campground[location]" id="location" required
                         value="<%= campground.location %>">
                 </div>
-                <input type="file" name="image" id="image" multiple>
                 <div class="mb-3">
                     <label class="form-label" for="price">Campground Price</label>
                     <div class="input-group">
@@ -29,6 +28,10 @@
                     <label class="form-label" for="description">Description</label>
                     <textarea class="form-control" type="text" name="campground[description]" required
                         id="description"><%= campground.description %> </textarea>
+                </div>
+                <div class="mb-3">
+                    <label for="image" class="form-label">Add more images</label>
+                    <input class="form-control" type="file" id="image" name="image" multiple>
                 </div>
                 <div class="mb-3">
                     <button class="btn btn-info">Update Campground</button>
