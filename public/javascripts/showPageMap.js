@@ -5,11 +5,18 @@ const lang = parseFloat(langStr);
 mapboxgl.accessToken = mapToken;
 const map = new mapboxgl.Map({
     container: 'map', // container ID
-    style: 'mapbox://styles/mapbox/streets-v11', // style URL
+    style: 'mapbox://styles/mapbox/light-v10', // style URL
     center: [lang, lat], // starting position [lng, lat]
-    zoom: 8 // starting zoom
+    zoom: 4 // starting zoom
 });
 
 new mapboxgl.Marker()
-    .setLngLat([-74.5, 40])
+    .setLngLat([lang, lat])
+    .setPopup(
+        new mapboxgl.Popup({ offset: 25 })
+            .setHTML(
+                `<h3>${title}</h3><p>${campgroundLocation}</p>`
+            )
+    )
     .addTo(map);
+
