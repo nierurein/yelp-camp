@@ -6,7 +6,10 @@ const geocoder = mbxGeocoding({ accessToken: mapBoxToken });
 
 module.exports.index = async (req, res) => {
     const campgrounds = await Campground.find({});
-    res.render('campgrounds/index', { campgrounds });
+
+    const stringifiedMapData = JSON.stringify({ features: campgrounds });
+
+    res.render('campgrounds/index', { campgrounds, stringifiedMapData });
 }
 
 module.exports.renderNewForm = (req, res) => {
